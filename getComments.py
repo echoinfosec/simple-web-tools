@@ -15,13 +15,13 @@ def getSoup(html):
     return soup
 
 def getSoupFromFile(fileName):
-    print('[-] looking for comments in', fileName)
+    print('[*] looking for comments in', fileName)
     with open(fileName) as fp:
         soup = getSoup(fp)
     return soup
 
 def getSoupFromSite(url):
-    print('[-] looking for comments in', url)
+    print('[*] looking for comments in', url)
     try:
         r = requests.get(url)
     except Exception as e:
@@ -39,12 +39,12 @@ def printComments(soup):
         print('[-] no comments found')
         return
     
-    print('[-] %s comments found:' % numComments)
+    print('[+] %s comments found:' % numComments)
     print('-' * 25)
     for comment in comments:
         print(comment)
         print('-' * 25)
-    print('[-] all comments printed')
+    print('[*] all comments printed')
 
 def argParse():
     parser = argparse.ArgumentParser(
